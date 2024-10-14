@@ -1,10 +1,10 @@
-
-
+import Saugykla
+import Book
 class Library:
     def __init__(self):
-        self.file_manager = FileManager()
-        self.books = self.file_manager.load_books()
-        self.users = self.file_manager.load_users()
+        self.saugykla = Saugykla()
+        self.books = self.saugykla.load_books()
+        self.users = self.saugykla.load_users()
 
     def add_book(self, pavadinimas, autorius, metai, zanras, kiekis):
         new_book = Book(pavadinimas, autorius, metai, zanras, kiekis)
@@ -35,10 +35,10 @@ class Library:
             print(f"{user.name} skaitytojas neturi vėluojančiu atiduotu knygų.")
 
     def save_books(self):
-        self.file_manager.save_books(self.books)
+        self.saugykla.save_books(self.books)
 
     def save_users(self):
-        self.file_manager.save_users(self.users)
+        self.saugykla.save_users(self.users)
 
     def register_user(self, name):
         if name not in [user.name for user in self.users]:

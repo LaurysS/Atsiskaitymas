@@ -40,14 +40,25 @@ def library_menu(library):
             pavadinimas = input("Pavadinimas: ")
             autorius = input("Autorius: ")
             while True:
-                metai = int(input("Metai: "))
-                if 1500 <= metai <= 2024:
-                    break
-                else:
-                    print("Netinkamas metai. Prašau įvesti metus tarp 1500 ir 2024.")
+                try:
+                    metai = int(input("Metai: "))
+                    if 1500 <= metai <= 2024:
+                        break
+                    else:
+                        print("Netinkamas metai. Prašau įvesti metus tarp 1500 ir 2024.")
+                except ValueError:
+                            print("Įvestas netinkamas formatas. Prašome įvesti sveiką skaičių.")
             # metai = int(input("Metai: "))
             zanras = input("Žanras: ")
-            kiekis = int(input("Knygų kiekis: "))
+            while True:
+                try:
+                    kiekis = int(input("Knygų kiekis: "))
+                    if kiekis <= 0:
+                        print("Kiekis negali būti neigiamas. Prašome įvesti teigiamą skaičių.")
+                    else:
+                        break
+                except ValueError:
+                            print("Įvestas netinkamas formatas. Prašome įvesti sveiką skaičių.")
             library.add_book(pavadinimas, autorius, metai, zanras, kiekis)
             print(f"Knyga '{pavadinimas}' pridėta į biblioteką.")
         elif choice == '2':

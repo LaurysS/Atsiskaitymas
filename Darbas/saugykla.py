@@ -43,7 +43,6 @@ class Saugykla:
     def load_users(self):
         if not os.path.exists(self.users_file): #patikrina ar egzistuoja failas
             return []
-
         try:
             with open(self.users_file, 'r') as f:
                 users_data = json.load(f)

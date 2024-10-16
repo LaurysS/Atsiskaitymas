@@ -48,7 +48,6 @@ def library_menu(library):
                         print("Netinkamas metai. Prašau įvesti metus tarp 1500 ir 2024.")
                 except ValueError:
                             print("Įvestas netinkamas formatas. Prašome įvesti sveiką skaičių.")
-            # metai = int(input("Metai: "))
             zanras = input("Žanras: ")
             while True:
                 try:

@@ -39,7 +39,13 @@ def library_menu(library):
         if choice == '1':
             pavadinimas = input("Pavadinimas: ")
             autorius = input("Autorius: ")
-            metai = int(input("Metai: "))
+            while True:
+                metai = int(input("Metai: "))
+                if 1500 <= metai <= 2024:
+                    break
+                else:
+                    print("Netinkamas metai. Prašau įvesti metus tarp 1500 ir 2024.")
+            # metai = int(input("Metai: "))
             zanras = input("Žanras: ")
             kiekis = int(input("Knygų kiekis: "))
             library.add_book(pavadinimas, autorius, metai, zanras, kiekis)
